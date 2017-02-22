@@ -1,4 +1,4 @@
-$( document).ready(function() {
+$(document).ready(function() {
   var textBox = document.querySelector('textarea');
   var maxLength = 140;
   textBox.addEventListener('input', function(event){
