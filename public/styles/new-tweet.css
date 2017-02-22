@@ -1,12 +1,60 @@
+article {
+  opacity: 0.6;
+}
+
+article:hover {
+  opacity: 1;
+}
+
+article footer {
+  font-size: 0.8em;
+  padding: 0.5em;
+}
+
+article footer i {
+  color:#00a087;
+  float: right;
+  margin: 0px 2px;
+  opacity: 0;
+}
+
+article:hover footer i {
+  opacity: 1;
+}
+
+article header {
+  background-color: #eee;
+  border-radius: 8px 8px 0px 0px;
+  padding: 0.2em 0.5em;
+}
+
+article header span {
+  font-size:1.5em;
+  font-weight: bold;
+  vertical-align: top;
+}
+
+article img {
+  border-radius: 5px;
+  width:10%;
+}
+
+article p {
+  border-bottom: 1px solid grey;
+  margin: 0;
+  padding: 1em;
+}
+
+article text {
+  float: right;
+}
+
 section {
   background-color: #eee;
   border: 1px solid grey;
   border-radius: 8px;
-  margin: 0 2em;
-}
-
-.new-tweet {
-  padding:0 0.5em 0.5em;
+  margin: 2em;
+  padding:0.5em;
 }
 
 .new-tweet form textarea{
@@ -29,3 +77,9 @@ section {
 .new-tweet h2 {
   border-bottom: 1px solid black;
 }
+
+.tweets {
+  background-color: #ffffff;
+  padding: 0;
+}
+
