@@ -1,5 +1,8 @@
 article {
   opacity: 0.6;
+  border: 1px solid grey;
+  border-radius: 8px;
+  margin-bottom: 2em;
 }
 
 article:hover {
@@ -51,10 +54,13 @@ article text {
 
 section {
   background-color: #eee;
-  border: 1px solid grey;
   border-radius: 8px;
   margin: 2em;
   padding:0.5em;
+}
+
+.new-tweet {
+  border: 1px solid grey;
 }
 
 .new-tweet form textarea{

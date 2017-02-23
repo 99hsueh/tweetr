@@ -4,7 +4,7 @@ $(document).ready(function() {
   textBox.addEventListener('input', function(event){
   var charRemaining = maxLength - this.value.length;
   var counterClass = this.parentElement.getElementsByClassName('counter');
-  $(counterClass).html(charRemaining);
+  $(counterClass).text(charRemaining);
     if (charRemaining < 0){
       $(counterClass).addClass('counter-red');
     } else {

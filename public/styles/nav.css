@@ -26,3 +26,17 @@
   width: 80px;
   margin-right: 10px;
 }
+
+button {
+  border-color: black;
+  background-color: #e6ffff;
+  border-radius: 5px;
+  color: #00a087;
+  float: right;
+  margin-top: 0.8em;
+}
+
+button:hover {
+  background-color: white;
+  color: black;
+}

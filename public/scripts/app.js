@@ -50,22 +50,6 @@
   }
 ];
 
-// var tweetData = {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": {
-//       "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-//       "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-//       "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-//     },
-//     "handle": "@SirIsaac"
-//   },
-//   "content": {
-//     "text": "If I have seen further it is by standing on the shoulders of giants"
-//   },
-//   "created_at": 1461116232227
-// }
-
 
 // Test / driver code (temporary)
 // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
@@ -92,9 +76,56 @@ $(document).ready(function(){
     for(everyUser of tweets){
       // calls createTweetElement for each tweet
       // takes return value and appends it to the tweets container
-      $('.tweets').append(createTweetElement(everyUser));
+      $('.tweets').prepend(createTweetElement(everyUser));
     }
   }
-  renderTweets(data);
+  // renderTweets(data);
+
+  function loadTweets() {
+    $.ajax({
+        url: '/tweets',
+        method: 'GET',
+        success: renderTweets
+    });
+  }
+  loadTweets();
+
+  //toggling the form element
+  $('button').click(function(){
+    $(".new-tweet").slideToggle(function(){
+      $("textarea").focus();
+    })
+  });
+
+  //form validation
+  $(".new-tweet form").on("submit", function( event ) {
+    event.preventDefault();
+    var maxLength = 140;
+    var charRemaining = maxLength - $("textarea").val().length;
+
+    if(charRemaining === maxLength){
+      $(".msg").text("you didn't input any message!");
+      function removeMsg(){
+        $(".msg").text("");
+      }
+      setTimeout(removeMsg, 2000);
+    }
+    if(charRemaining < 0){
+      $(".msg").text("your message is too long!");
+      function removeMsg(){
+        $(".msg").text("");
+      }
+      setTimeout(removeMsg, 2000);
+    }else{
+      $.ajax({
+        url: '/tweets',
+        method: 'POST',
+        data: $(this).serialize(),
+        //grab reference of function instead of invoking
+        success: loadTweets
+      });
+    }
+  });
+
 });
 
