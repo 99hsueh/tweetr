@@ -58,6 +58,7 @@ $(document).ready(function(){
       $('.tweets').prepend(createTweetElement(everyUser));
     }
   }
+
   // renderTweets(data);
 
   function loadTweets() {
@@ -101,7 +102,7 @@ $(document).ready(function(){
         method: 'POST',
         data: $(this).serialize(),
         //grab reference of function instead of invoking
-        success: loadTweets
+        success: function(){location.reload();}, loadTweets
       });
     }
   });
