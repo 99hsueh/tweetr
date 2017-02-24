@@ -31,16 +31,18 @@
 
 
 // Test / driver code (temporary)
+
 // $('#tweets-container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
 $(document).ready(function(){
   function createTweetElement(tweet){
+    let creationDate = Math.round((Date.now() - tweet.created_at)/86400000) + " days ago"
     const $tweet = $('<article>').addClass('tweet')
     const $header = $("<header>");
     const $img = $("<img>").attr('src', tweet.user.avatars.small);
     const $span = $("<span>").text(tweet.user.name);
     const $text = $("<text>").text(tweet.user.handle);
     const $pTag = $("<p>").text(tweet.content.text);
-    const $footer = $("<footer>").text(tweet.created_at);
+    const $footer = $("<footer>").text(creationDate);
     const $fontAwesome = '<i class="fa fa-heart" aria-hidden="true"></i><i class="fa fa-retweet" aria-hidden="true"></i><i class="fa fa-flag" aria-hidden="true"></i>';
 
     $tweet.append($header, $pTag, $footer);
